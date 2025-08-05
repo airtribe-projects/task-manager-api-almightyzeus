@@ -5,6 +5,11 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+// Use the task routes
+const taskRoutes = require('./routes/taskRoutes');
+app.use('/', taskRoutes);
+
 app.listen(port, (err) => {
     if (err) {
         return console.log('Something bad happened', err);
